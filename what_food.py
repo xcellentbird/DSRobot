@@ -4,14 +4,14 @@ import cv2
 import time
 
 class yolo4food:
-    def __init__(self, cfg='./cfg/yolov4-tiny.cfg', data='./cfg/coco.data', weights='./yolov4-tiny.weights'):
+    def __init__(self, cfg='/home/dsnx/darknet/cfg/yolov4-tiny.cfg', data='/home/dsnx/darknet/cfg/coco.data', weights='/home/dsnx/darknet/yolov4-tiny.weights'):
         self.net, self.cn, self.color = darknet.load_network(cfg, data, weights)
         self.width = darknet.network_width(self.net)
         self.height = darknet.network_height(self.net)
         self.darknet_image = darknet.make_image(self.width, self.height, 3)
         self.foods=''
 
-    def cam_on(self, cam_num=0, txt='food_out', showmode=False, writemode=False):
+    def cam_on(self, cam_num=4, txt='food_out', showmode=False, writemode=False, detect_term = 5):
         cap = cv2.VideoCapture(cam_num)
         past = time.time()
         while(cap.isOpened()):
@@ -25,14 +25,14 @@ class yolo4food:
                 r = darknet.detect_image(self.net, self.cn, self.darknet_image) # detect obj from image
                 
                 if showmode:
-                    image = darknet.draw_boxes(r, frame_resized, color) # draw box on the image
+                    image = darknet.draw_boxes(r, frame_resized, self.color) # draw box on the image
                     image = cv2.resize(image, (len(frame[0])/4, len(frame)/4))
                     cv2.imshow('show',image)
                 else:
                     cv2.destroyAllWindows()        
 
                 now = time.time()
-                if now - past >= 5: 
+                if now - past >= detect_term: 
                     self.foods=''
                     for found in r: # for all detected obj
                         label_name, prob, loc = found[0], found[1], found[2] # get label name, probablility, location
@@ -55,4 +55,4 @@ class yolo4food:
 
 if __name__ == '__main__':
     y = yolo4food()
-    y.cam_on(cam_num=3)
+    y.cam_on(cam_num=4, showmode=True)
