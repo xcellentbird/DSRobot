@@ -52,6 +52,8 @@ class yolo4food:
                 break
         cap.release()
 
+    def get_food(self):
+        return self.foods
 
 if __name__ == '__main__':
     y = yolo4food()
