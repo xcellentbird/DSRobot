@@ -2,7 +2,9 @@ import threading
 import csv
 import numpy as np
 import pandas as pd
+import sys
 from food_recog import yolo4food
+import time
 
 jja = 'Jja-jang-myeon'
 jjam = 'Jjam-bbong'
@@ -14,7 +16,9 @@ def table2serve(food, csv_name='orders.csv'):
     flg = False
     table = 0
     data = data.values.tolist()
+    food = food.split()[0]
     for i, row in enumerate(data):
+        print(row)
         if food in row:
             #print(food +" is in ",i,"th order")
             table = row[0]
@@ -33,24 +37,34 @@ def table2serve(food, csv_name='orders.csv'):
 if __name__=='__main__':
     yolo = yolo4food() # yolo init
     # cam_num=4, txt='food_out', showmode=False, writemode=False, detect_term = 5
-    cam_thrd = threading.Thread(target=yolo.cam_on, args=(2, 'food_out.txt', True, False, 2))
-    order_thrd = threading.Thread(target=table2serve, args=(yolo.get_food(), 'orders.csv'))
+    cam_thrd = threading.Thread(target=yolo.cam_on, args=(0, 'food_out.txt', True, False, 3))
+    #order_thrd = threading.Thread(target=table2serve, args=(yolo.get_food(), 'orders.csv'))
 
     cam_thrd.start()
-    order_thrd.start()
+    #order_thrd.start()
 
     print("key 'q' - exit")
     while True:
         print("menu: Jja-jang-myeon, Jjam-bbong, Tang-su-yuk")
         print("menu input: ")
-        ipt = input()
+        time.sleep(3)
+        ipt = yolo.get_food()
+        ipt = ipt.split()
+        if ipt:
+            ipt = ipt[0]
+        else:
+            continue
+
+        print(ipt)
         if ipt == 'q':
             print("exit~")
         elif ipt not in menu:
-            print(ipt,"is not on the list")
+            print("pass")
+            pass
+            #print(ipt,"is not on the list")
         else:
             t2s = table2serve(ipt)
             if t2s == -1:
                 print("There is no table ordered ",ipt)
             else:
-                print(t2s,"번 테이블로 서빙합니다")
+                print(t2s," th table")
