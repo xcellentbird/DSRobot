@@ -41,6 +41,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.table.setModel(self.model)
 
 
-app = QtWidgets.QApplication(sys.argv)
-window = MainWindow()
-app.exec_()
+if __name__=='__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    window = MainWindow()
+    app.exec_()

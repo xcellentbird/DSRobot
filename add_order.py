@@ -2,7 +2,7 @@
 import argparse
 import csv
 
-jja = 'Jja-jang-myoen'
+jja = 'Jja-jang-myeon'
 jjam = 'Jjam-bbong'
 tang = 'Tang-su-yuk'
 menu = [jja, jjam, tang]
@@ -23,7 +23,7 @@ def check_parser(table_number, food_name):
         return False
     elif food_name not in menu:
         print("{} is not in our menu".format(food_name))
-        print("menu: Jja-jang, Jjam-bbong, Tang-su-yuk")
+        print("menu: Jja-jang-myeon, Jjam-bbong, Tang-su-yuk")
         return False
     else:
         return True

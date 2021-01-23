@@ -4,14 +4,14 @@ import cv2
 import time
 
 class yolo4food:
-    def __init__(self, cfg='/home/dsnx/darknet/cfg/yolov4-tiny.cfg', data='/home/dsnx/darknet/cfg/coco.data', weights='/home/dsnx/darknet/yolov4-tiny.weights'):
+    def __init__(self, cfg='/home/dsnx/DSRobot/darknet/y4_food.cfg', data='/home/dsnx/DSRobot/darknet/y4_food.data', weights='/home/dsnx/DSRobot/darknet/y4_food_final.weights'):
         self.net, self.cn, self.color = darknet.load_network(cfg, data, weights)
         self.width = darknet.network_width(self.net)
         self.height = darknet.network_height(self.net)
         self.darknet_image = darknet.make_image(self.width, self.height, 3)
         self.foods=''
 
-    def cam_on(self, cam_num=4, txt='food_out', showmode=False, writemode=False, detect_term = 5):
+    def cam_on(self, cam_num=0, txt='food_out', showmode=False, writemode=False, detect_term = 5):
         cap = cv2.VideoCapture(cam_num)
         past = time.time()
         while(cap.isOpened()):
@@ -26,7 +26,7 @@ class yolo4food:
                 
                 if showmode:
                     image = darknet.draw_boxes(r, frame_resized, self.color) # draw box on the image
-                    image = cv2.resize(image, (len(frame[0])/4, len(frame)/4))
+                    image = cv2.resize(image, (len(frame[0]), len(frame)))
                     cv2.imshow('show',image)
                 else:
                     cv2.destroyAllWindows()        
@@ -53,8 +53,9 @@ class yolo4food:
         cap.release()
 
     def get_food(self):
+        #print(self.foods, " is returned")
         return self.foods
 
 if __name__ == '__main__':
     y = yolo4food()
-    y.cam_on(cam_num=4, showmode=True)
+    y.cam_on(cam_num=0, showmode=True)
