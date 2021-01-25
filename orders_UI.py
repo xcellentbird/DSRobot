@@ -25,6 +25,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.cnt = 0
         self.data = []
 
+        self.setWindowTitle('받은 주문')
+        
         self.table = QtWidgets.QTableView()
         self.setCentralWidget(self.table)
 
