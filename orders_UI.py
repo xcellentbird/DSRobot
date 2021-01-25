@@ -20,7 +20,7 @@ class TableModel(QtCore.QAbstractTableModel):
         return len(self._data[0])
     
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self, renew = 1):
         super().__init__()
         self.cnt = 0
         self.data = []
@@ -29,11 +29,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(self.table)
 
         self.timer = QTimer(self)
-        self.timer.timeout.connect(self.updat)
-        self.timer.start(1000)
+        self.timer.timeout.connect(self.order_update)
+        self.timer.start(renew * 1000)
         self.show()
 
-    def updat(self):
+    def order_update(self):
         with open('orders.csv', 'r', encoding='utf-8', newline='') as csv_file:
             d = list(csv.reader(csv_file))
         self.data = d
