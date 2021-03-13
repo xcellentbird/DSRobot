@@ -1,6 +1,6 @@
 # DSRobot
 
-1. ArUco: 카메라로 Fiducial Marker를 촬영하고, 해당 Marker와 카메라의 위치 및 자세 관계를 추정하는 기능을 수행합니다.
+1. Marker Pose Estimation: 카메라로 Fiducial Marker를 촬영하고, 해당 Marker와 카메라의 위치 및 자세 관계를 추정하는 기능을 수행합니다.
 
 - https://studio.youtube.com/video/99rW5R8d02s/edit
 
