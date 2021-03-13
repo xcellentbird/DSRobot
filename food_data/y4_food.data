@@ -1,8 +1,0 @@
-classes= 3
-train  = C:/Yolo_v4/darknet/build/darknet/x64/dsrobot_food_data/food_training.txt
-#train = E:/MSCOCO/5k.txt
-valid  = C:/Yolo_v4/darknet/build/darknet/x64/dsrobot_food_data/food_testing.txt
-names = ./dsrobot_food_data/y4_food.names
-backup = backup
-eval=coco
-
