@@ -57,4 +57,13 @@
 	• 음식을 다 먹고 앉아있으니, 널널해보이는 종업원이 와서 '맛있게 드셨나요?', '더 필요하신 것 있으신가요' 여쭤보기도 했다.   
    
 #### 서빙 로봇이 운영하는 식당을 다녀오고, 후기   
-처음엔 정말 신기했고, 어색했지만 종업원이 친절하게 안내해주시고, 로봇도 편안하게 느껴졌다. 피자 맛은 ~~~~~   
+처음엔 정말 신기했고, 어색했지만 종업원이 친절하게 안내해주시고, 로봇도 편안하게 느껴졌다. 피자 맛은 ~~~~~  
+
+## Scrap
+![image](https://user-images.githubusercontent.com/59414764/111077080-80299580-8532-11eb-92b1-419b076af845.png)
+![image](https://user-images.githubusercontent.com/59414764/111077100-8ddf1b00-8532-11eb-894d-af0d6271e581.png)
+![image](https://user-images.githubusercontent.com/59414764/111077104-933c6580-8532-11eb-93ee-f70c68e5f950.png)
+![image](https://user-images.githubusercontent.com/59414764/111077110-97688300-8532-11eb-90de-049f9c542728.png)
+![image](https://user-images.githubusercontent.com/59414764/111077117-9f282780-8532-11eb-8334-e53ceeb29782.png)
+
+
