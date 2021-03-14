@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/59414764/102019140-fe9c5d00-3db4-11eb-8f27-78c6788b3613.png
+
 ArUco Marker Detection
 ======================
 
@@ -5,8 +7,4 @@ ArUco Marker Detection
 
 ArUco markers are easy to detect pattern grids that yield up to 1024 different patterns. They were built for augmented reality and later used for camera calibration. Since the grid uniquely orients the square, the detection algorithm can determing the pose of the grid.
 
-**ChArUco**
-
-ArUco markers were improved by interspersing them inside a checkerboard called ChArUco. Checkerboard corner intersectionsa provide more stable corners because the edge location bias on one square is countered by the opposite edge orientation in the connecting square. By interspersing ArUco markers inside the checkerboard, each checkerboard corner gets a label which enables it to be used in complex calibration or pose scenarios where you cannot see all the corners of the checkerboard.
-
-The smallest ChArUco board is 5 checkers and 4 markers called a "Diamond Marker".
+- 참조 링크 : https://docs.opencv.org/master/d5/dae/tutorial_aruco_detection.html
