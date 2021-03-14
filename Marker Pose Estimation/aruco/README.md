@@ -1,4 +1,4 @@
-https://user-images.githubusercontent.com/59414764/102019140-fe9c5d00-3db4-11eb-8f27-78c6788b3613.png
+![image](https://user-images.githubusercontent.com/59414764/111076408-8c602380-852f-11eb-80e7-9aa4f9993837.png)
 
 ArUco Marker Detection
 ======================
